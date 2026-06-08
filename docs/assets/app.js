@@ -172,6 +172,7 @@
         '<button class="chip' + (activeVol === "L-CS-DR4-16" ? " active" : "") + '" data-vol="L-CS-DR4-16">1940s (typed)</button>' +
       "</div>";
     wrap.appendChild(toolbar);
+    var input = toolbar.querySelector("#q");
 
     var count = el("div", { class: "count" });
     wrap.appendChild(count);
@@ -179,7 +180,7 @@
     wrap.appendChild(grid);
 
     function render() {
-      var qq = (document.getElementById("q").value || "").trim();
+      var qq = (input.value || "").trim();
       var ql = qq.toLowerCase();
       grid.innerHTML = "";
       var list = D.pages.filter(function (p) {
@@ -197,26 +198,22 @@
     }
     render();
 
-    setTimeout(function () {
-      var input = document.getElementById("q");
-      input.addEventListener("input", function () {
-        render();
-        var u = "#/browse";
+    input.addEventListener("input", function () {
+      render();
+      var parts = [];
+      if (input.value.trim()) parts.push("q=" + encodeURIComponent(input.value.trim()));
+      if (activeVol) parts.push("vol=" + activeVol);
+      history.replaceState(null, "", "#/browse" + (parts.length ? "?" + parts.join("&") : ""));
+    });
+    toolbar.querySelectorAll(".chip").forEach(function (c) {
+      c.addEventListener("click", function () {
+        var v = c.getAttribute("data-vol");
         var parts = [];
         if (input.value.trim()) parts.push("q=" + encodeURIComponent(input.value.trim()));
-        if (activeVol) parts.push("vol=" + activeVol);
-        history.replaceState(null, "", parts.length ? u + "?" + parts.join("&") : u);
+        if (v) parts.push("vol=" + v);
+        location.hash = "#/browse" + (parts.length ? "?" + parts.join("&") : "");
       });
-      toolbar.querySelectorAll(".chip").forEach(function (c) {
-        c.addEventListener("click", function () {
-          var v = c.getAttribute("data-vol");
-          var parts = [];
-          if (input.value.trim()) parts.push("q=" + encodeURIComponent(input.value.trim()));
-          if (v) parts.push("vol=" + v);
-          location.hash = "#/browse" + (parts.length ? "?" + parts.join("&") : "");
-        });
-      });
-    }, 0);
+    });
     return wrap;
   }
 

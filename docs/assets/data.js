@@ -87,6 +87,13 @@ window.PPD_DATA = {
       lede: "The drive to give Salford's youth somewhere to play meant buying and draining difficult ground.",
       body: "One of the longest reports argues for the acquisition of some seventy acres for playing fields — weighing the cost, the heavy clay sub-soil, drainage, and the staff needed to keep it. It is municipal idealism and hard engineering in the same breath.",
       pages: ["dr4-8-050"]
+    },
+    {
+      id: "invertebrates",
+      title: "Insects and other invertebrates",
+      lede: "Insects are surprisingly scarce in these parks reports — but the bowling greens were plagued for decades by something smaller and more persistent.",
+      body: "Across nearly twenty years and both volumes, one invertebrate keeps surfacing: the humble earthworm. Worm casts ruined the surface of the bowling greens, and successive Superintendents fought back with “worm killer” — corrosive sublimate, and before the war the imported Calomel Dust. It is a small recurring thread that says a great deal about the seasonal, hands-on work of keeping a public park playable. (A tantalising 1925 heading first read as “Bees in the Parks” turned out, on inspection, almost certainly to be “Boats in the Lake” — a good reminder of why transcriptions need a second look.)",
+      pages: ["dr4-8-178", "dr4-8-180", "dr4-16-062"]
     }
   ],
 
@@ -330,6 +337,57 @@ window.PPD_DATA = {
       people: [],
       places: ["Buile Hill Park"],
       themes: ["wartime", "money", "sport"]
+    },
+    {
+      id: "dr4-8-178",
+      volume: "L-CS-DR4-8",
+      ref: "L/CS/DR4/8",
+      image: "L-CS-DR4-8_178.jpg",
+      seq: "178",
+      folio: "pp. 295–296",
+      date: "1–14 September 1926",
+      sortDate: "1926-09-01",
+      form: "Handwritten",
+      title: "A new Superintendent — and worms in the bowling greens",
+      summary: "The newly arrived Superintendent's first report opens a long-running battle: earthworms infesting the bowling greens in the damp weather.",
+      transcription: "Parks & Playgrounds, from September 1st to 14th 1926.\n\nGentlemen,\n\nI beg to report that I commenced my duties as [the late?] Superintendent on Wednesday, 1st September. I have visited practically all the Parks, Recreation Grounds, etc. [under the control of?] the Parks Committee, and I have pleasure in reporting that the general work of the Department is progressing satisfactorily.\n\nAt Peel Park it has been found necessary to repair the [wall?] adjoining the football grounds, as many of the stones had become detached and were being thrown on to the football pitches. This work has now been completed. Other work has been principally of a routine character.\n\nAt Buile Hill Park, Albert Park and Mandley Park work has chiefly consisted of routine gardening operations.\n\n[At the recreation grounds the Bowling Greens have received an application of worm killer.] During the recent damp weather all the Bowling Greens have become badly infested with worms which, in addition to damaging the turf, [is a serious detriment?] to bowlers. I propose to have the [remainder treated?] immediately. Unless this is done, the work of remaking the greens during the autumn and winter would be labour in vain.\n\n[continues, with works at Light Oaks Park and the letting of football pitches at Bolton Road]",
+      people: [],
+      places: ["Peel Park", "Buile Hill Park", "Albert Park", "Mandley Park", "Ordsall Park", "Charlestown", "Langworthy Park", "Bolton Road Playing Fields", "Light Oaks Park"],
+      themes: ["invertebrates", "sport", "horticulture"]
+    },
+    {
+      id: "dr4-8-180",
+      volume: "L-CS-DR4-8",
+      ref: "L/CS/DR4/8",
+      image: "L-CS-DR4-8_180.jpg",
+      seq: "180",
+      folio: "pp. 299–300",
+      date: "15–28 September 1926",
+      sortDate: "1926-09-15",
+      form: "Handwritten",
+      title: "“Worm killer with satisfactory results”",
+      summary: "A fortnight later, the remedy is working — the bowling-green managers report success against the worms.",
+      transcription: "Parks & Playgrounds, from September 15th to 28th 1926.\n\nGentlemen,\n\nI beg to submit my report.\n\n[Reports follow on petrol road rollers at Hart Hill proposed for repair and transfer to Buile Hill Park; and an accident to a child of about 6 years, the daughter of Mrs. [Eastwood?], who fell from a tricycle near the bowling green at Buile Hill on Friday the 23rd instant and was removed to Hospital in the ambulance.]\n\nAt Charlestown Recreation Ground … work [adjoining?] the bowling green [continues].\n\nAt Albert Park … the boundary wall in Trafford Road has also been repaired. At Mandley Park the strengthening of one of the bowling [green systems?] has been completed.\n\nThe managers of the Bowling Greens at the various Parks have reported an application of worm killer with satisfactory results.\n\nThe levelling of ground in the [unemployed?] scheme at Bolton Road Playing Fields is providing satisfactorily. At Light Oaks Park the [pruning?] [of shrubs?] has been commenced, and will be [carried on?] when the weather is unfavourable for outdoor work.",
+      people: [],
+      places: ["Buile Hill Park", "Charlestown", "Albert Park", "Mandley Park", "Bolton Road Playing Fields", "Light Oaks Park"],
+      themes: ["invertebrates", "sport"]
+    },
+    {
+      id: "dr4-16-062",
+      volume: "L-CS-DR4-16",
+      ref: "L/CS/DR4/16",
+      image: "L-CS-DR4-16_062.jpg",
+      seq: "062",
+      folio: "f. 25",
+      date: "21 July 1942",
+      sortDate: "1942-07-21",
+      form: "Typescript",
+      title: "Worms, and a wartime worm-killer shortage",
+      summary: "Alongside a Head Gardener's report of vandalism at Ordsall Park, the Superintendent explains that the imported worm-killer he relied on is now unobtainable in wartime.",
+      transcription: "REPORT OF HEAD GARDENER - ORDSALL PARK. 21st JULY 1942.\n\nI beg to report some of the damage that has been done here the last few weeks — trees barked and broken, shrubs pulled up, bedding plants broken down and the wooden partition in the shelter broken and thrown in the lake. The Bowling Greens have suffered badly, seven seats broken, four windows broken in the Ladies Lavatory, one skylight broken and seven yards of wall pulled down at the Gents Lavatory, broken windows in the Tool House and Score [boxes?], seats broken and Playground surround posts and netting broken. Fernal[?] House, all windows and frames broken, wire guards and tops broken, ferns uprooted and ridge tiles broken. About thirty trees broken and barked all round. I took thirty one privet bushes in one day last week that had been pulled up; bottom shed windows broken, [some?] spouts pulled down. A fire started in the nurseries, which the watchman noticed in time. A Yale lock broken that had only been on a few days.\n\nSigned T. Harris, Head Gardener.\n\n[The Superintendent adds:]\n\nI have also received numerous complaints this year from bowlers with regard to worms in the bowling greens and the poor condition of some of the greens. I am endeavouring to obtain corrosive sublimate as a worm killer, but unfortunately I can only obtain this chemical in very small quantities and with a limited number of men it is extremely difficult to satisfactorily work any green at the best possible time. Previous to the war we were using Calomel Dust, a vegetable[?] compound purchased from China and the Malay Archipelago, which as you will readily realise is now out of bounds as far as worm killer is concerned.",
+      people: ["T. Harris"],
+      places: ["Ordsall Park"],
+      themes: ["invertebrates", "wartime", "horticulture"]
     }
   ]
 };

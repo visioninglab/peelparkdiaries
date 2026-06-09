@@ -41,13 +41,41 @@
   backdrop.addEventListener("click", function (e) {
     if (e.target === backdrop) closeReader();
   });
-  document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeReader(); });
+  document.addEventListener("keydown", function (e) {
+    if (!backdrop.classList.contains("open")) return;
+    if (e.key === "Escape") closeReader();
+    else if (e.key === "ArrowLeft") navReader(-1);
+    else if (e.key === "ArrowRight") navReader(1);
+  });
 
   function closeReader() { backdrop.classList.remove("open"); backdrop.innerHTML = ""; }
 
-  function openReader(id) {
+  // Navigation context for the reader: an ordered list of page ids and the current id.
+  var navIds = [];
+  var navCurId = null;
+  function allIdsByDate() {
+    return D.pages.slice().sort(function (a, b) {
+      return (a.sortDate || "").localeCompare(b.sortDate || "");
+    }).map(function (p) { return p.id; });
+  }
+  function navReader(delta) {
+    var i = navIds.indexOf(navCurId) + delta;
+    if (i >= 0 && i < navIds.length) openReader(navIds[i], navIds);
+  }
+
+  function openReader(id, list) {
     var p = pagesById[id];
     if (!p) return;
+    // Establish the sequence to step through (search results, theme set, or all pages by date).
+    if (!Array.isArray(list) || list.indexOf(id) === -1) list = allIdsByDate();
+    navIds = list;
+    navCurId = id;
+    var idx = navIds.indexOf(id);
+    var hasPrev = idx > 0;
+    var hasNext = idx < navIds.length - 1;
+    var nav = navIds.length > 1
+      ? '<span class="navcount">' + (idx + 1) + ' / ' + navIds.length + '</span>'
+      : "";
     var entities = "";
     if (p.people && p.people.length)
       entities += '<div class="tagset"><span class="lab">People</span>' +
@@ -62,10 +90,15 @@
     backdrop.innerHTML =
       '<div class="reader" role="dialog" aria-modal="true">' +
         '<div class="bar"><div class="t">' + esc(p.title) + '</div>' +
-          '<button class="x" aria-label="Close">&times;</button></div>' +
+          '<div class="navgrp">' + nav +
+            '<button class="x" aria-label="Close">&times;</button></div></div>' +
         '<div class="body">' +
-          '<div class="imgpane"><a href="' + IMG + p.image + '" target="_blank" rel="noopener">' +
-            '<img src="' + IMG + p.image + '" alt="' + esc(p.title) + '"></a></div>' +
+          '<div class="imgpane">' +
+            (hasPrev ? '<button class="navchev prev" aria-label="Previous page">&#8249;</button>' : "") +
+            '<a href="' + IMG + p.image + '" target="_blank" rel="noopener">' +
+            '<img src="' + IMG + p.image + '" alt="' + esc(p.title) + '"></a>' +
+            (hasNext ? '<button class="navchev next" aria-label="Next page">&#8250;</button>' : "") +
+          "</div>" +
           '<div class="textpane">' +
             (p.date ? '<div class="date">' + esc(p.date) + "</div>" : "") +
             '<div class="ref">' + esc(p.ref) + " &middot; image " + esc(p.seq) +
@@ -79,6 +112,11 @@
       "</div>";
     backdrop.classList.add("open");
     backdrop.querySelector(".x").addEventListener("click", closeReader);
+    var prevBtn = backdrop.querySelector(".navchev.prev");
+    var nextBtn = backdrop.querySelector(".navchev.next");
+    if (prevBtn) prevBtn.addEventListener("click", function () { navReader(-1); });
+    if (nextBtn) nextBtn.addEventListener("click", function () { navReader(1); });
+    backdrop.querySelector(".textpane").scrollTop = 0;
     backdrop.querySelectorAll("[data-ent]").forEach(function (b) {
       b.style.cursor = "pointer";
       b.addEventListener("click", function () {
@@ -95,7 +133,7 @@
     h.appendChild(el("div", { class: "hero" }, '' +
       '<div>' +
         '<p>Salford\'s <strong>Peel Park</strong> opened in 1846 as one of the first public parks anywhere in the world. ' +
-        'For nearly a century its gardeners and Parks Superintendents kept detailed report books — and two of those volumes have been scanned, page by page.</p>' +
+        'For nearly a century its gardeners and Parks Superintendents kept detailed report books — and three of those volumes have been scanned, page by page.</p>' +
         '<p>This is a small demonstration of what we can do with that material: <strong>read the handwriting and typescript</strong>, ' +
         'turn the pages into <strong>searchable text</strong>, draw out the <strong>people and places</strong>, and trace <strong>themes</strong> across the years.</p>' +
         '<div class="pill-row">' +
@@ -126,7 +164,7 @@
     what.appendChild(cards);
 
     var vols = el("section");
-    vols.appendChild(el("h2", { class: "section" }, "The two volumes"));
+    vols.appendChild(el("h2", { class: "section" }, "The three volumes"));
     vols.style.marginTop = "44px";
     var vc = el("div", { class: "volcards" });
     D.volumes.forEach(function (v) {
@@ -143,7 +181,7 @@
     return h;
   }
 
-  function tileEl(p, q) {
+  function tileEl(p, q, listIds) {
     var t = el("button", { class: "tile" });
     t.innerHTML =
       '<div class="thumb"><img loading="lazy" src="' + IMG + p.image + '" alt="' + esc(p.title) + '"></div>' +
@@ -152,7 +190,7 @@
         "<h3>" + highlight(p.title, q) + "</h3>" +
         '<div class="ref">' + esc(p.ref) + " &middot; image " + esc(p.seq) + "</div>" +
       "</div>";
-    t.addEventListener("click", function () { openReader(p.id); });
+    t.addEventListener("click", function () { openReader(p.id, listIds); });
     return t;
   }
 
@@ -195,7 +233,8 @@
       count.textContent = list.length + (list.length === 1 ? " page" : " pages") +
         (qq ? ' matching “' + qq + '”' : "") + (activeVol ? " in this volume" : "");
       if (!list.length) { grid.appendChild(el("div", { class: "empty" }, "No pages match that search. Try a gardener's name, a park, or a word like “tennis”.")); return; }
-      list.forEach(function (p) { grid.appendChild(tileEl(p, qq)); });
+      var listIds = list.map(function (p) { return p.id; });
+      list.forEach(function (p) { grid.appendChild(tileEl(p, qq, listIds)); });
     }
     render();
 
@@ -259,11 +298,11 @@
       var sec = el("div", { class: "theme" });
       sec.innerHTML = "<h3>" + esc(t.title) + "</h3><p class='lede'>" + esc(t.lede) + "</p><p>" + esc(t.body) + "</p>";
       var links = el("div", { class: "threadlinks" });
-      (t.pages || []).forEach(function (pid) {
+      var themeIds = (t.pages || []).filter(function (pid) { return pagesById[pid]; });
+      themeIds.forEach(function (pid) {
         var p = pagesById[pid];
-        if (!p) return;
         var b = el("button", null, (p.date || p.title));
-        b.addEventListener("click", function () { openReader(pid); });
+        b.addEventListener("click", function () { openReader(pid, themeIds); });
         links.appendChild(b);
       });
       sec.appendChild(links);
@@ -286,6 +325,16 @@
 
   function route() {
     var r = parse();
+    // Deep link to a single page, e.g. #/page/dr4-5-055 — render browse behind it and open the reader.
+    if (r.path.indexOf("page/") === 0) {
+      var pid = r.path.slice(5);
+      app.innerHTML = "";
+      app.appendChild(viewBrowse({}));
+      openReader(pid, allIdsByDate());
+      window.scrollTo(0, 0);
+      return;
+    }
+    closeReader();
     var view;
     if (r.path === "browse") view = viewBrowse(r.params);
     else if (r.path === "index") view = viewIndex();

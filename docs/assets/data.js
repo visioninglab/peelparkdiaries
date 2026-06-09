@@ -100,8 +100,8 @@ window.PPD_DATA = {
     {
       id: "invertebrates",
       title: "Insects and other invertebrates",
-      lede: "Insects are surprisingly scarce in these parks reports — but the bowling greens were plagued, for almost forty years, by something smaller and more persistent.",
-      body: "Across three volumes and nearly four decades, one invertebrate keeps surfacing: the humble earthworm. Worm casts ruined the surface of the bowling greens — a complaint that runs from 1905 (worms “taken out of the Bowling Greens” at Ordsall Park) through the 1920s and into wartime 1942, when the Superintendent could no longer get the “worm killer” he relied on. Successive Superintendents fought back with corrosive sublimate, and before the war the imported Calomel Dust. It is a small recurring thread that says a great deal about the seasonal, hands-on work of keeping a public park playable. (Two “insect” candidates flagged in the scans — a 1925 “bees” reading and a 1910 “green scale / wasps” passage — were rejected on close inspection as “Boats in the Lake” and a misread report about broken seats: a reminder of why every transcription needs a second look.)",
+      lede: "Mention of insects is surprisingly scarce in these parks reports — but the bowling greens were plagued, for almost forty years, by something persistent.",
+      body: "Across three volumes and nearly four decades, one invertebrate keeps surfacing: the earthworm. Worm casts ruined the surface of the bowling greens — a complaint that runs from 1905 (worms “taken out of the Bowling Greens” at Ordsall Park) through the 1920s and into wartime 1942, when the Superintendent could no longer get the “worm killer” he relied on. Successive Superintendents fought back with corrosive sublimate, and before the war the imported Calomel Dust. It is a small recurring thread that says a great deal about the seasonal, hands-on work of keeping a public park playable.",
       pages: ["dr4-5-055", "dr4-8-178", "dr4-8-180", "dr4-16-062"]
     }
   ],

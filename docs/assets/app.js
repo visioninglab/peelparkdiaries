@@ -100,8 +100,8 @@
         'turn the pages into <strong>searchable text</strong>, draw out the <strong>people and places</strong>, and trace <strong>themes</strong> across the years.</p>' +
         '<div class="pill-row">' +
           '<span class="pill">' + contentPages.length + ' pages transcribed</span>' +
-          '<span class="pill">2 volumes</span>' +
-          '<span class="pill">1922–1946</span>' +
+          '<span class="pill">3 volumes</span>' +
+          '<span class="pill">1905–1946</span>' +
         '</div>' +
         '<p><a href="#/browse">Browse &amp; search the pages &rarr;</a></p>' +
       '</div>' +
@@ -167,7 +167,8 @@
     toolbar.innerHTML =
       '<div class="search"><input id="q" type="search" placeholder="Search the diaries — try “bowling”, “Buile Hill”, “superannuation”…" value="' + esc(q) + '"></div>' +
       '<div class="filter-chips">' +
-        '<button class="chip' + (activeVol === "" ? " active" : "") + '" data-vol="">Both volumes</button>' +
+        '<button class="chip' + (activeVol === "" ? " active" : "") + '" data-vol="">All volumes</button>' +
+        '<button class="chip' + (activeVol === "L-CS-DR4-5" ? " active" : "") + '" data-vol="L-CS-DR4-5">1900s–10s (handwritten)</button>' +
         '<button class="chip' + (activeVol === "L-CS-DR4-8" ? " active" : "") + '" data-vol="L-CS-DR4-8">1920s (handwritten)</button>' +
         '<button class="chip' + (activeVol === "L-CS-DR4-16" ? " active" : "") + '" data-vol="L-CS-DR4-16">1940s (typed)</button>' +
       "</div>";

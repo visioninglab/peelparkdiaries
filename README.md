@@ -14,12 +14,12 @@ full-text search, people/place extraction, and thematic analysis.
 ## The showcase website
 
 Built as a dependency-free static site in [`docs/`](docs/), ready for GitHub
-Pages. It demonstrates, on ~12 transcribed pages spanning **1922–1946**:
+Pages. It demonstrates, on a curated set of transcribed pages spanning **1905–1946**:
 
 - **Page viewer + transcription** — each scanned page beside its machine-read text.
 - **Full-text search** — search every transcribed page and jump to matches.
 - **People & places** — names and parks pulled out and linked back to the pages.
-- **Themes** — short threads (staffing, sport, wartime, money, land) built from quotes.
+- **Themes** — short threads (staffing, sport, wartime, money, land, and insects/invertebrates) built from quotes.
 
 > **Transcriptions are first-pass, AI-generated drafts** shown to illustrate the
 > method. Uncertain readings are marked `[?]`; figure-tables are summarised. They
@@ -43,28 +43,33 @@ the data is loaded as plain JavaScript, not via `fetch`.)
    folder **`/docs`**.
 3. The site will appear at `https://visioninglab.github.io/<repo-name>/`.
 
-Only the ~14 curated images live in [`docs/images/`](docs/images/), so the
+Only the curated images live in [`docs/images/`](docs/images/), so the
 published site stays lean and republishes a small, captioned subset rather than
-all 518 scans.
+the full set of raw scans.
 
 ## Source material
 
-Two bound volumes have been digitised, one page per image:
+Three bound volumes have been digitised, one page per image:
 
 | Archive reference | Folder | Pages | Form | Span (observed) |
 |---|---|---|---|---|
+| L/CS/DR4/5 | [`L-CS-DR4-5/`](L-CS-DR4-5/) | 215 | Handwritten (+ printed inserts) | c. 1905–1912 |
 | L/CS/DR4/8 | [`L-CS-DR4-8/`](L-CS-DR4-8/) | 199 | Handwritten | c. 1922–1926 |
 | L/CS/DR4/16 | [`L-CS-DR4-16/L-CS-DR4-16/`](L-CS-DR4-16/L-CS-DR4-16/) | 319 | Typescript | c. 1942–1946 |
 
-Both are periodic reports from the Parks Superintendent to Salford's Parks
+All three are periodic reports from the Parks Superintendent to Salford's Parks
 Committee, recording staffing (gardeners, foremen, propagators), retirements and
 superannuation, receipts (bowling greens, tennis courts, even tomatoes and
-pigeons), planting and grounds work, land acquisition, and — in the 1940s volume
-— wartime and post-war administration.
+pigeons), planting and grounds work, land acquisition, the seasonal fight against
+worms in the bowling greens, and — in the 1940s volume — wartime and post-war
+administration. DR4/5 also has printed inserts: band programmes for music in the
+parks and Peel Park flower-show schedules.
 
 These volumes are part of the **Salford Parks Report Books (1874–1967)**, written
 by successive Head Gardeners and Park Superintendents. The handwritten volumes
-run to 1933; later volumes are typescript — consistent with the two scanned here.
+run to 1933; later volumes are typescript — consistent with the three scanned here.
+(DR4/5 was supplied as a single PDF; its 215 pages were extracted to JPEGs to
+match the other volumes.)
 
 ## Repository structure
 
@@ -75,14 +80,15 @@ peelparkdiaries/
 │   ├── index.html
 │   ├── .nojekyll
 │   ├── assets/  (style.css, app.js, data.js — transcriptions + entities + themes)
-│   └── images/  (the ~14 curated, captioned scans)
-├── L-CS-DR4-8/                 # 001.jpg … 199.jpg  (handwritten volume)
+│   └── images/  (the curated, captioned scans)
+├── L-CS-DR4-5/                 # 001.jpg … 215.jpg  (handwritten, c.1905–1912)
+├── L-CS-DR4-8/                 # 001.jpg … 199.jpg  (handwritten, c.1922–1926)
 └── L-CS-DR4-16/
-    └── L-CS-DR4-16/            # 001.jpg … 319.jpg  (typescript volume)
+    └── L-CS-DR4-16/            # 001.jpg … 319.jpg  (typescript, c.1942–1946)
 ```
 
-The two source volumes are nested differently (`L-CS-DR4-8/` is flat;
-`L-CS-DR4-16/` has an extra subfolder). Image numbers are the **scan sequence**,
+The source volumes are nested differently (`L-CS-DR4-5/` and `L-CS-DR4-8/` are
+flat; `L-CS-DR4-16/` has an extra subfolder). Image numbers are the **scan sequence**,
 not the original page/folio numbers written in the volumes — transcriptions
 record both where they differ.
 

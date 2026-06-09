@@ -25,6 +25,15 @@ window.PPD_DATA = {
 
   volumes: [
     {
+      id: "L-CS-DR4-5",
+      ref: "L/CS/DR4/5",
+      label: "The Parks Superintendents Reports",
+      form: "Handwritten",
+      span: "c.1905–1912",
+      pages: 215,
+      blurb: "The earliest of the three volumes: the Superintendent's fortnightly reports to the Parks Committee in the Edwardian years, in a fine copperplate hand, with printed inserts — band programmes for music in the parks and Peel Park flower-show schedules — pasted in among the reports."
+    },
+    {
       id: "L-CS-DR4-8",
       ref: "L/CS/DR4/8",
       label: "Parks Superintendent Reports",
@@ -91,14 +100,82 @@ window.PPD_DATA = {
     {
       id: "invertebrates",
       title: "Insects and other invertebrates",
-      lede: "Insects are surprisingly scarce in these parks reports — but the bowling greens were plagued for decades by something smaller and more persistent.",
-      body: "Across nearly twenty years and both volumes, one invertebrate keeps surfacing: the humble earthworm. Worm casts ruined the surface of the bowling greens, and successive Superintendents fought back with “worm killer” — corrosive sublimate, and before the war the imported Calomel Dust. It is a small recurring thread that says a great deal about the seasonal, hands-on work of keeping a public park playable. (A tantalising 1925 heading first read as “Bees in the Parks” turned out, on inspection, almost certainly to be “Boats in the Lake” — a good reminder of why transcriptions need a second look.)",
-      pages: ["dr4-8-178", "dr4-8-180", "dr4-16-062"]
+      lede: "Insects are surprisingly scarce in these parks reports — but the bowling greens were plagued, for almost forty years, by something smaller and more persistent.",
+      body: "Across three volumes and nearly four decades, one invertebrate keeps surfacing: the humble earthworm. Worm casts ruined the surface of the bowling greens — a complaint that runs from 1905 (worms “taken out of the Bowling Greens” at Ordsall Park) through the 1920s and into wartime 1942, when the Superintendent could no longer get the “worm killer” he relied on. Successive Superintendents fought back with corrosive sublimate, and before the war the imported Calomel Dust. It is a small recurring thread that says a great deal about the seasonal, hands-on work of keeping a public park playable. (Two “insect” candidates flagged in the scans — a 1925 “bees” reading and a 1910 “green scale / wasps” passage — were rejected on close inspection as “Boats in the Lake” and a misread report about broken seats: a reminder of why every transcription needs a second look.)",
+      pages: ["dr4-5-055", "dr4-8-178", "dr4-8-180", "dr4-16-062"]
     }
   ],
 
   // Curated, transcribed pages.
   pages: [
+    {
+      id: "dr4-5-cover",
+      volume: "L-CS-DR4-5",
+      ref: "L/CS/DR4/5",
+      image: "L-CS-DR4-5_001.jpg",
+      seq: "001",
+      folio: "Front cover",
+      date: "",
+      sortDate: "1905-00-00",
+      form: "Handwritten",
+      title: "Volume cover — “The Parks Superintendents Reports”",
+      summary: "The tooled leather binding of the earliest volume, gilt-lettered beneath the royal arms.",
+      transcription: "[Bound volume, gilt-lettered beneath the royal coat of arms:]\n\nTHE PARKS SUPERINTENDENTS\nREPORTS",
+      people: [],
+      places: [],
+      themes: []
+    },
+    {
+      id: "dr4-5-055",
+      volume: "L-CS-DR4-5",
+      ref: "L/CS/DR4/5",
+      image: "L-CS-DR4-5_055.jpg",
+      seq: "055",
+      folio: "pp. 27–28",
+      date: "29 August – 4 September 1905",
+      sortDate: "1905-08-29",
+      form: "Handwritten",
+      title: "Worms in the bowling greens (1905)",
+      summary: "The earliest worm reference in the collection — Ordsall Park's bowling greens cleared of worms, nearly forty years before the same battle recurs in wartime.",
+      transcription: "Parks & Playgrounds, from 29th August to 4th September 1905.\n\nGentlemen,\n\n[At Peel Park there has been] damage by some person walking along the roof. I propose to fix up some barb wire to try & prevent further damage.\n\nAt Buile Hill the building of the Bath Room & washhouse is nearing completion, & I submit a tender for the fixing of the Bath & necessary pipes & taps.\n\nAt Ordsall Park a very large number of worms have been taken out of the Bowling Greens, & the work of pricking [&] [rolling?] in grass is being done.\n\nAt Albert & Mandley Parks the Bowling Greens are receiving attention.\n\nAt The Height Recreation Ground the fixing of stiles & fences & the building of the conveniences is being pushed on with.\n\nAt Regent Square the [forming?] of borders & the levelling of the ground ready for sodding & planting is being done.",
+      people: [],
+      places: ["Ordsall Park", "Peel Park", "Buile Hill Park", "Albert Park", "Mandley Park", "The Height", "Regent Square"],
+      themes: ["invertebrates", "sport", "horticulture"]
+    },
+    {
+      id: "dr4-5-074",
+      volume: "L-CS-DR4-5",
+      ref: "L/CS/DR4/5",
+      image: "L-CS-DR4-5_074.jpg",
+      seq: "074",
+      folio: "pp. 65–66",
+      date: "1–13 August 1906",
+      sortDate: "1906-08-01",
+      form: "Handwritten",
+      title: "The 25th Annual Flower Show at Peel Park",
+      summary: "The Superintendent reports the 25th Annual Flower Show “an unqualified success,” with — by his count — tens of thousands of visitors to Peel Park.",
+      transcription: "Parks & Playgrounds, from 1st to 13th August 1906.\n\nGentlemen,\n\nAt Peel Park, on the 5th & 6th instant, the 25th Annual Flower Show was held & was an unqualified success in regard [to] quality & [the] number of exhibits and [the] performance; for at least 24,000[?] persons visited the show, & I [enclose a] most satisfactory statement showing the receipts & expenditure in connection with this work.\n\n[Receipts from the various Bowling Greens & Tennis Grounds, 1st July to 13th August, follow, with totals and the takings from the seats at the Band.]\n\nI have also to report that the Tramways Band have offered to give a performance in Buile Hill Park on Saturday evening, August 13th … subject to your consent.\n\n[Continues with staff matters — including a workman absent for an operation for cancer, whose wages were paid in part.]",
+      people: [],
+      places: ["Peel Park", "Buile Hill Park"],
+      themes: ["horticulture", "money"]
+    },
+    {
+      id: "dr4-5-007",
+      volume: "L-CS-DR4-5",
+      ref: "L/CS/DR4/5",
+      image: "L-CS-DR4-5_007.jpg",
+      seq: "007",
+      folio: "Inserted programme",
+      date: "1911",
+      sortDate: "1911-05-01",
+      form: "Printed insert",
+      title: "“Music in the Public Parks, 1911”",
+      summary: "A printed season programme pasted into the volume, scheduling named bands across Salford's parks on set evenings through the summer of 1911.",
+      transcription: "COUNTY BOROUGH OF SALFORD.\nMUSIC IN THE PUBLIC PARKS, 1911.\n\n[A printed table allocates bands to each park by day of the week across the columns MAY · JUNE · JULY · AUGUST:]\n\nOrdsall Park (Monday) · Seedley Park · Mandley Park (Monday) · Peel Park (Tuesday) · Buile Hill Park (Wednesday) · Albert Park (Thursday) · Albert Park (Saturday) · Buile Hill Park (Saturday).\n\nEVENINGS, 7 TO 9.\n\nA. Wilkinson, Superintendent of Parks.",
+      people: ["A. Wilkinson"],
+      places: ["Ordsall Park", "Seedley Park", "Mandley Park", "Peel Park", "Buile Hill Park", "Albert Park"],
+      themes: []
+    },
     {
       id: "dr4-8-cover",
       volume: "L-CS-DR4-8",
